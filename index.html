@@ -14,13 +14,13 @@
     </div>
 
     <div class="column">
-        <form data-ng-submit="boardController.addList()">
+        <form data-ng-submit="boardController.addList()" class="new-list">
             <div>
                 <input type="text" placeholder="Add a list" data-ng-model="boardController.newListTitle"
                        class="add-list-input"/>
             </div>
             <div>
-                <button type="submit">Add</button>
+                <button type="submit" data-ng-disabled="!boardController.newListTitle">Add</button>
             </div>
         </form>
     </div>

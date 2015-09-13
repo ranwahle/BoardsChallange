@@ -15,6 +15,12 @@ div.listContent{
  
 }
 
+.new-list{
+    background: rgba(0,0,0,.12);
+    cursor: pointer;
+    color: #fff;
+}
+
 .card{
     clear: both;
     display: block;
