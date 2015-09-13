@@ -1,0 +1,28 @@
+{
+  "name": "BoardsChallange",
+  "version": "0.0.0",
+  "authors": [
+    "ranwahle <ran.wahle@gmail.com>"
+  ],
+  "description": "Borads Challange",
+  "main": "index.html",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "Boards",
+    "Challange"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "angularjs#~1.4.5",
+    "requirejs": "~2.1.20"
+  }
+}

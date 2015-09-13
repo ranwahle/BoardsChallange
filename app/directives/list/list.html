@@ -1,0 +1,21 @@
+<div class="listContent" draggable="true">
+    <div>{{content.title}}</div>
+    <div data-ng-repeat="card in content.cards">
+        <card content="card" ></card>
+    </div>
+    <div dropzone="move" data-ng-class="{'list-over' : content.isOver}">
+        <a class="add-card-link" href="javascript:void(0)" draggable="false"
+           data-ng-click="listController.changeStateToAddingCard()"
+           data-ng-if="!listController.addingCard">Add a card…</a>
+
+        <div data-ng-if="listController.addingCard">
+            <textarea data-ng-model="listController.newCardTitle">
+                </textarea>
+
+            <div>
+                <button data-ng-click="listController.addCard()"> Add</button>
+            </div>
+        </div>
+
+    </div>
+</div>

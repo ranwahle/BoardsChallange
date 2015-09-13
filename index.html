@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="content/board.css" type="text/css"/>
+    <script type="text/javascript" src="bower_components/requirejs/require.js" data-main="app/main"></script>
+    <title></title>
+</head>
+<body>
+<div class="board" data-ng-controller="boardController as boardController">
+    <div class="column" data-ng-repeat="list in boardController.lists"
+         dropzone="copy" list-wrapper="" on-drag-over="boardController.onDragOver($index)">
+        <div list="" content="list" data-add-card="boardController.addCard()"></div>
+    </div>
+
+    <div class="column">
+        <form data-ng-submit="boardController.addList()">
+            <div>
+                <input type="text" placeholder="Add a list" data-ng-model="boardController.newListTitle"
+                       class="add-list-input"/>
+            </div>
+            <div>
+                <button type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
