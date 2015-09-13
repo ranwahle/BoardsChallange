@@ -12,7 +12,7 @@ require(['app','boardDataService'], function(app)
     controller.prototype.addList=function()
     {
         this.lists.push({title: this.newListTitle});
-        this.newCardTitle = '';
+        this.newListTitle = '';
     };
 
     controller.prototype.onDragOver = function()

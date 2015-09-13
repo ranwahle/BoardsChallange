@@ -11,7 +11,8 @@ require.config({
      'listWrapperDirective' : 'directives/listWrapper/listWrapper',
      'directives' : 'directives/directives',
      'boardController' : 'controllers/boardController',
-     'boardDataService' : 'services/boardDataService'
+     'boardDataService' : 'services/boardDataService',
+     'arrayUtils' : 'services/arrayUtils'
 
  },
 
@@ -20,14 +21,15 @@ require.config({
         'directives': {exports: 'directives',
             deps: ['angular', 'app', 'listDirective', 'cardDirective'
         ,'listWrapperDirective']},
-        'boardDataService': {exports: 'boardDataService', deps: ['angular', 'app']},
-        'boardController' : {exports: 'boardController', deps: ['angular', 'app', 'boardDataService']}
+        'boardDataService': {exports: 'boardDataService', deps: ['angular', 'app','arrayUtils']},
+        'boardController' : {exports: 'boardController', deps: ['angular', 'app', 'boardDataService']},
+
 
 
     }
 });
 
-define('init', ['app','boardDataService', 'directives','boardController'], function(app, directives,boardDataService,
+define('init', ['app','boardDataService', 'boardController','directives'], function(app, directives,boardDataService,
                                                                              boardController)
 {
     console.log(boardController);

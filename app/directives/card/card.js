@@ -29,9 +29,12 @@ require(['app','boardDataService'], function(app)
             controller: controller,
             link: function(scope, element, attributes, controller)
             {
-                element.on('dragstart', function()
+                element.on('dragstart', function(evt)
                 {
+
                    boardDataService.draggedCard =  controller.card;
+                    evt.dataTransfer.effectAllowed = "move";
+
                 });
             }
         };

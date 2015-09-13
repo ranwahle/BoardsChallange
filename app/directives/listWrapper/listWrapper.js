@@ -16,7 +16,7 @@ require(['app'], function(app)
                var currentElement = element[0],
                    currentList = element.scope().list;
 
-               currentElement.addEventListener('drop',  function (evt) {
+               element.on('drop',  function (evt) {
 
                    currentList.isOver = false;
                    if (boardDataService.draggedList &&
@@ -27,6 +27,7 @@ require(['app'], function(app)
 
                        if (index < 0 || currentIndex < 0)
                        {
+                           boardDataService.draggedList = null;
                            return;
                        }
 
@@ -47,6 +48,7 @@ require(['app'], function(app)
                        }
                       // boardDataService.lists[index] = currentList;
                        boardDataService.lists[currentIndex] = boardDataService.draggedList;
+                       boardDataService.draggedList = null;
                        scope.$applyAsync();
                    }
 
@@ -62,7 +64,7 @@ require(['app'], function(app)
                {
                    currentList.isOver = false;
                    evt.preventDefault();
-               })
+               });
 
                element.on('dragleave', function()
                {

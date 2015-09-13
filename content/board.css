@@ -62,3 +62,21 @@ div.listContent{
 
     margin: 0;
 }
+
+.card-title{
+    clear: both;
+    display: block;
+    font-weight: 400;
+    margin: 0 0 4px;
+    overflow: hidden;
+    text-decoration: none;
+    word-wrap: break-word;
+}
+.card-details
+{
+    overflow: auto;
+    padding: 6px 8px 4px;
+    position: relative;
+    z-index: 10;
+    background-color: white;
+}

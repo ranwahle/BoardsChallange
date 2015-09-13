@@ -3,6 +3,6 @@
  */
 define(['angular'], function()
 {
-   var module = angular.module('boards', []);
-    return module;
+   return angular.module('boards', []);
+
 });

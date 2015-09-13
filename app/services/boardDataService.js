@@ -4,6 +4,7 @@
 require(['app'], function(app)
 {
 
+
     var service = function()
     {
         this.lists = [];
