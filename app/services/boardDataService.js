@@ -1,7 +1,7 @@
 /**
  * Created by ranwahle on 9/13/15.
  */
-require(['app'], function(app)
+define(['app'], function(app)
 {
 
 

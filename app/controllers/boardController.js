@@ -1,7 +1,7 @@
 /**
  * Created by ranwahle on 9/12/15.
  */
-require(['app','boardDataService'], function(app)
+define(['app','boardDataService'], function(app)
 {
    var controller = function(boardDataService)
    {

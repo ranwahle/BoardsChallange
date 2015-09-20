@@ -1,9 +1,10 @@
 /**
  * Created by ranwahle on 9/12/15.
  */
-require(['app'], function (app) {
+define(['app'], function (app) {
     var list = function (boardDataService) {
-        var controller = function ($scope) {
+        var maxNumberOfCards= 4,
+         controller = function ($scope) {
             var self = this;
             $scope.listController = this;
             this.list = $scope.content;
@@ -29,6 +30,10 @@ require(['app'], function (app) {
             this.list.cards.push({title: this.newCardTitle, belongsTo: this.list});
             this.addingCard = false;
             this.newCardTitle = '';
+            if (this.list.cards.length === maxNumberOfCards)
+            {
+                this.list.addCardDisabled = true;
+            }
         };
 
 
@@ -46,7 +51,7 @@ require(['app'], function (app) {
                 element.find('div').on('dragstart', function (evt) {
                     if (boardDataService.draggedCard)
                     {
-                        return; //Uf a card dragging is on the way, don't drag list
+                        return; //if a card dragging is on the way, don't drag list
                     }
                     boardDataService.draggedList = controller.list;
                     evt.dataTransfer.effectAllowed = "move";
@@ -59,9 +64,12 @@ require(['app'], function (app) {
                     if (!draggedCard)
                         return;
                     draggedCard.belongsTo.cards.remove(draggedCard);
+                    draggedCard.belongsTo.addCardDisabled = false;
+
                     if (!controller.list.cards) {
                         controller.list.cards = [];
                     }
+
                     controller.list.cards.push(draggedCard);
                     draggedCard.belongsTo = controller.list;
                     boardDataService.draggedCard = null;

@@ -6,13 +6,14 @@ require.config({
  paths:{
      'angular' : '../bower_components/angular/angular.min',
      'app' : 'app',
+     'boardController' : 'controllers/boardController',
+     'boardDataService' : 'services/boardDataService',
+     'arrayUtils' : 'services/arrayUtils',
      'cardDirective': 'directives/card/card',
      'listDirective' : 'directives/list/list',
      'listWrapperDirective' : 'directives/listWrapper/listWrapper',
-     'directives' : 'directives/directives',
-     'boardController' : 'controllers/boardController',
-     'boardDataService' : 'services/boardDataService',
-     'arrayUtils' : 'services/arrayUtils'
+     'directives' : 'directives/directives'
+
 
  },
 
@@ -22,17 +23,17 @@ require.config({
             deps: ['angular', 'app', 'listDirective', 'cardDirective'
         ,'listWrapperDirective']},
         'boardDataService': {exports: 'boardDataService', deps: ['angular', 'app','arrayUtils']},
-        'boardController' : {exports: 'boardController', deps: ['angular', 'app', 'boardDataService']},
+        'boardController' : {exports: 'boardController', deps: ['angular', 'app', 'boardDataService']}
 
 
 
     }
 });
 
-define('init', ['app','boardDataService', 'boardController','directives'], function(app, directives,boardDataService,
-                                                                             boardController)
+require(['app','boardDataService', 'boardController','directives'], function(app, boardDataService,
+                                                                             boardController,directives)
 {
-    console.log(boardController);
+
     angular.element(document).ready(function()
     {
            angular.bootstrap(document.body, [app.name])
@@ -40,4 +41,3 @@ define('init', ['app','boardDataService', 'boardController','directives'], funct
     });
 });
 
-require(['init'], function() {});
